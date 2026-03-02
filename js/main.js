@@ -1,13 +1,15 @@
 console.log("JavaScript File is linked");
 
-// --- Variables
+// ---1--- Variables
 const labels = document.querySelectorAll(".label");
 const targetZones = document.querySelectorAll(".target-zone");
 let currrentDraggedElement = null;
 // adding variable for reset button;
 const resetBtn = document.querySelector(".reset-btn");
+// adding variable for label container
+const labelDiv = document.querySelector("#label-box");
 
-// --- Functions
+// ---2--- Functions
 function dragStart() {
     console.log("Started Dragging");
     // whatever the user is dragging, store it in currrentDraggedElement
@@ -19,10 +21,10 @@ function dragOver(e) {
     console.log("drag over called");
 
     //code for hover effect
-    // for each target zone, change background colour
-    // targetZones.forEach(zone => {
-    //     zone.style.backgroundColor = "rgba(40, 255, 3, 0.219)";
-    // });
+    //for each target zone, change background colour
+    targetZones.forEach(zone => {
+        zone.style.backgroundColor = "rgba(40, 255, 3, 0.219)";
+    });
 }
 
 function dropped(e) {
@@ -42,21 +44,25 @@ function dropped(e) {
     currrentDraggedElement = null;
 
     // change background colour to original
-    // targetZones.forEach(zone => {
-    //     zone.style.backgroundColor = "rgba(200,200,200,0.2)";
-    // });
+    targetZones.forEach(zone => {
+        zone.style.backgroundColor = "rgba(200,200,200,0.2)";
+    });
 }
 
 // add function for sending labels back
 function resetLabels() {
     console.log("resetLabels function ran");
+    console.log(labels);
 
     document.querySelectorAll(".label");
-    console.log(document.querySelectorAll(".label"));
     
+    // had to google how to append nodelist from querySelectorAll to a div
+    labels.forEach(label => {
+        labelDiv.appendChild(label);
+    });
 }
 
-// --- Event Listeners
+// ---3--- Event Listeners
 labels.forEach(label => {
     label.addEventListener("dragstart", dragStart);
 });
@@ -67,14 +73,8 @@ targetZones.forEach(zone => {
     zone.addEventListener("drop", dropped);
 
     // zone.addEventListener("dragleave", zoneHover);
+});
 
-    // IF zone has label already -> exit function
-    // if (zone has more than one label) {exit function}s
-    
-
-})
-
-// event listener for reset button, listen for click
 // when button is clicked, run resetLabels function
 resetBtn.addEventListener("click", resetLabels);
 

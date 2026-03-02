@@ -32,7 +32,7 @@ function dropped(e) {
     console.log("dropped");
 
     // if there is already a label, don't drop piece
-    //check for pieces before dropping the piece
+    // check for pieces before dropping the piece
     // had to google how to find the amount of child elements
     if(this.children.length >= 1){
         return;
@@ -52,6 +52,7 @@ function dropped(e) {
 
 // add function for sending labels back
 function resetLabels() {
+    // checking that function runs and that labels variable can be accessed
     console.log("resetLabels function ran");
     console.log(labels);
 
@@ -74,8 +75,6 @@ targetZones.forEach(zone => {
     zone.addEventListener("dragover", dragOver);
     // adds puzzle piece
     zone.addEventListener("drop", dropped);
-
-    // zone.addEventListener("dragleave", zoneHover);
 });
 
 // when button is clicked, run resetLabels function

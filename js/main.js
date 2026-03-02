@@ -20,33 +20,41 @@ function dragOver(e) {
 
     //code for hover effect
     // for each target zone, change background colour
-    // document.querySelectorAll(".target-zone");
-    targetZones.forEach(targetZones => {
-        targetZones.style.backgroundColor = "yellow";
-    });
+    // targetZones.forEach(zone => {
+    //     zone.style.backgroundColor = "rgba(40, 255, 3, 0.219)";
+    // });
 }
 
 function dropped(e) {
     e.preventDefault();
     console.log("dropped");
 
+    // if there is already a label, don't drop piece
+    //check for pieces before dropping the piece
+    if(this.childNodes.length >= 1){
+        return;
+    };
+
     //drop the piece
     this.appendChild(currrentDraggedElement);
 
     //reset the reference
     currrentDraggedElement = null;
+
+    // change background colour to original
+    // targetZones.forEach(zone => {
+    //     zone.style.backgroundColor = "rgba(200,200,200,0.2)";
+    // });
 }
 
 // add function for sending labels back
 function resetLabels() {
     console.log("resetLabels function ran");
 
-
+    document.querySelectorAll(".label");
+    console.log(document.querySelectorAll(".label"));
+    
 }
-
-// add function for prevent multiples
-
-
 
 // --- Event Listeners
 labels.forEach(label => {
@@ -58,8 +66,11 @@ targetZones.forEach(zone => {
     // adds puzzle piece
     zone.addEventListener("drop", dropped);
 
+    // zone.addEventListener("dragleave", zoneHover);
+
     // IF zone has label already -> exit function
-    // if (zone has more than one label) {exit function}
+    // if (zone has more than one label) {exit function}s
+    
 
 })
 

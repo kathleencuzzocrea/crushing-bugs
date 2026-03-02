@@ -45,6 +45,7 @@ function dropped(e) {
     currrentDraggedElement = null;
 
     // change background colour to original
+    //.style code learned from in-class change-elements example build 
     targetZones.forEach(zone => {
         zone.style.backgroundColor = "rgba(200,200,200,0.2)";
     });

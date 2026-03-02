@@ -55,6 +55,7 @@ function resetLabels() {
     console.log("resetLabels function ran");
     console.log(labels);
 
+    // selecting all labels on page
     document.querySelectorAll(".label");
     
     // had to google how to append nodelist from querySelectorAll to a div

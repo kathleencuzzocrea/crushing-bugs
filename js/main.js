@@ -57,6 +57,7 @@ function resetLabels() {
     document.querySelectorAll(".label");
     
     // had to google how to append nodelist from querySelectorAll to a div
+    // taking every item from labels and appending to labelDiv
     labels.forEach(label => {
         labelDiv.appendChild(label);
     });

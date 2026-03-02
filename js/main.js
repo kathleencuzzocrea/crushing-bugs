@@ -33,7 +33,8 @@ function dropped(e) {
 
     // if there is already a label, don't drop piece
     //check for pieces before dropping the piece
-    if(this.childNodes.length >= 1){
+    // had to google how to find the amount of child elements
+    if(this.children.length >= 1){
         return;
     };
 
